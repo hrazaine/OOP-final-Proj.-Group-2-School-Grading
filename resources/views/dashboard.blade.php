@@ -9,19 +9,19 @@
     <meta name="keywords" content="dashboard,admin dashboard,template dashboard,html,html dashboard,admin dashboard template,admin template,tailwind ui,admin panel,html and css,html admin template,tailwind framework,html css javascript,tailwind css dashboard,dashboard html css,admin,template admin panel,dashboard html template">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/brand-logos/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/brand-logos/favicon.ico') }}">
 
     <!-- Main JS -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/main.js') }}"></script>
 
     <!-- Style Css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
 
     <!-- Simplebar Css -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/simplebar/simplebar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/simplebar/simplebar.min.css') }}">
 
     <!-- Color Picker Css -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/@simonwep/pickr/themes/nano.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/libs/@simonwep/pickr/themes/nano.min.css') }}">
 </head>
 
 <body>
@@ -3533,39 +3533,39 @@
 
 
   <!-- popperjs -->
-  <script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
 
   <!-- Color Picker JS -->
-  <script src="{{ asset('assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
 
   <!-- sidebar JS -->
-  <script src="{{ asset('assets/js/defaultmenu.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/defaultmenu.js') }}"></script>
 
   <!-- Switch JS -->
-  <script src="{{ asset('assets/js/switch.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/switch.js') }}"></script>
 
   <!-- sticky JS -->
-  <script src="{{ asset('assets/js/sticky.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/sticky.js') }}"></script>
 
 
   <!-- Simplebar JS -->
-  <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
 
   <!-- Preline JS -->
-  <script src="{{ asset('assets/libs/preline/preline.js') }}"></script>
+  <script src="{{ asset('backend/assets/libs/preline/preline.js') }}"></script>
 
   <!-- Apex Charts JS -->
-  <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
   <!-- CRM-Dashboard -->
-  <script src="{{ asset('assets/js/ecommercedashboard.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/ecommercedashboard.js') }}"></script>
 
   
   <!-- Custom-Switcher JS -->
-  <script src="{{ asset('assets/js/custom-switcher.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/custom-switcher.js') }}"></script>
 
   <!-- Custom JS -->
-  <script src="{{ asset('assets/js/custom.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 
 </body>
 
