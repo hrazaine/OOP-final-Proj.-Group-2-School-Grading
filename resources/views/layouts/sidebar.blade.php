@@ -44,12 +44,12 @@
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3"/><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
-                            <span class="side-menu__label">Enrollment</span>
+                            <span class="side-menu__label">Assessments</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide side-menu__label1">
-                                <a href="javascript:void(0);">Enrollment</a>
+                                <a href="javascript:void(0);">Assesments</a>
                             </li>
                             <li class="slide">
                                 <a href="form_layout.html" class="side-menu__item">SAR</a>
@@ -64,12 +64,12 @@
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h15v3H5zm12 5h3v9h-3zm-7 0h5v9h-5zm-5 0h3v9H5z" opacity=".3"/><path d="M20 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 19H5v-9h3v9zm7 0h-5v-9h5v9zm5 0h-3v-9h3v9zm0-11H5V5h15v3z"/></svg>
-                            <span class="side-menu__label">Tables</span>
+                            <span class="side-menu__label">Grades</span>
                             <i class="fe fe-chevron-right side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide side-menu__label1">
-                                <a href="javascript:void(0);">Tables</a>
+                                <a href="javascript:void(0);">Grades</a>
                             </li>
                             <li class="slide">
                                 <a href="tables.html" class="side-menu__item">Tables</a>

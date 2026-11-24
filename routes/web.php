@@ -28,14 +28,23 @@ Route::middleware('auth')->group(function () {
 
     // User Management Routes
     Route::get('/users', [UserManagementController::class, 'index'])
-        ->name('user.index');
+        ->name('users.index');
 
     Route::get('/users/create', [UserManagementController::class, 'create'])
-        ->name('user.create');
+        ->name('users.create');
 
     Route::post('/users', [UserManagementController::class, 'store'])
-        ->name('user.store');
+        ->name('users.store');
+    Route::get('/users/{id}/edit', [UserManagementController::class, 'edit'])
+    ->name('users.edit');
+
+    Route::put('/users/{id}', [UserManagementController::class, 'update'])
+    ->name('users.update');
+
+    Route::delete('/users/{id}', [UserManagementController::class, 'destroy'])
+    ->name('users.destroy');
 
 });
 
 require __DIR__.'/auth.php';
+
