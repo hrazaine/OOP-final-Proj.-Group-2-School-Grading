@@ -1,83 +1,75 @@
+
 <?php
 
 namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserManagementController extends Controller
 {
-    //Display all users
+    // Display all users
     public function index()
-    {   
-        $users = User::all();
-        return view('users.index', compact('users'));
-    }   
-
-     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
     {
-        return view('user.create');
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Show the create user form
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    // Save a new user
     public function store(Request $request)
     {
-        //dd($request->all());
-        //validate the request data
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
             'email' => 'required|string|email|max:50|unique:users',
-            'password' => 'required|string',
+            'password' => 'required|string|min:8',
             'birthdate' => 'nullable|date',
-     ]);
-    
+        ]);
 
-    //saving the user to the database
-    $user = new User();
-    $user->name = $request->fullname;   
-    $user->email = $request->email; 
-    $user->password = bcrypt($request->password);
-    $user->birthdate = $request->birthdate ?? null; // Set birthdate to null if not provided
-    $user->save();
+        $user = new User();
 
-    return redirect()->route('user.index')->with('success', 'User created successfully.');
-    }  
-    /**
-     * Display the specified resource.
-     */
+        $user->name = $validatedData['fullname'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+
+        // Only save birthdate if the database has this column
+        // $user->birthdate = $validatedData['birthdate'] ?? null;
+
+        $user->save();
+
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'User created successfully.');
+    }
+
+    // Display a specific user
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // Show the edit form
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Update user information
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // Delete a user
     public function destroy(string $id)
     {
         //
     }
 }
-    
-
