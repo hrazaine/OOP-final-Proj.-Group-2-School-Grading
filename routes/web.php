@@ -28,13 +28,13 @@ Route::middleware('auth')->group(function () {
 
     // User Management Routes
     Route::get('/users', [UserManagementController::class, 'index'])
-        ->name('users.index');
+        ->name('user.index');
 
     Route::get('/users/create', [UserManagementController::class, 'create'])
-        ->name('users.create');
+        ->name('user.create');
 
     Route::post('/users', [UserManagementController::class, 'store'])
-        ->name('users.store');
+        ->name('user.store');
 
 });
 
