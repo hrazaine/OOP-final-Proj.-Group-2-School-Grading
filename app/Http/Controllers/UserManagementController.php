@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -9,21 +8,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserManagementController extends Controller
 {
-    // Display all users
     public function index()
     {
         $users = User::all();
 
-        return view('users.index', compact('users'));
+        return view('user.index', compact('users'));
     }
 
-    // Show the create user form
     public function create()
     {
-        return view('users.create');
+        return view('user.create');
     }
 
-    // Save a new user
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -39,9 +35,6 @@ class UserManagementController extends Controller
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
 
-        // Only save birthdate if the database has this column
-        // $user->birthdate = $validatedData['birthdate'] ?? null;
-
         $user->save();
 
         return redirect()
@@ -49,25 +42,21 @@ class UserManagementController extends Controller
             ->with('success', 'User created successfully.');
     }
 
-    // Display a specific user
     public function show(string $id)
     {
         //
     }
 
-    // Show the edit form
     public function edit(string $id)
     {
         //
     }
 
-    // Update user information
     public function update(Request $request, string $id)
     {
         //
     }
 
-    // Delete a user
     public function destroy(string $id)
     {
         //
