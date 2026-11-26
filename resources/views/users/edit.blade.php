@@ -48,9 +48,12 @@
 
                 <div class="mb-3">
                     <label class="form-label">Account Status</label>
+                    @php
+                        $status = old('is_active', $user->is_active ? 'active' : 'inactive');
+                    @endphp
                     <select name="is_active" class="form-select" required>
-                        <option value="1" {{ old('is_active', $user->is_active) == '1' ? 'selected' : '' }}>Active</option>
-                        <option value="0" {{ old('is_active', $user->is_active) == '0' ? 'selected' : '' }}>Inactive</option>
+                        <option value="active" {{ $status === 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="inactive" {{ $status === 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
                 </div>
 

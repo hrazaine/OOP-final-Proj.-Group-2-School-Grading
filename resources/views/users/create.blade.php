@@ -14,34 +14,53 @@
                                     
                                 </div>
                                 <div class="box-body">
-                                    <form method ="POST" action="{{ route('users.store')}}">
+                                    @if ($errors->any())
+                                        <div class="mb-4 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-700">
+                                            <ul class="list-disc ps-5 mb-0">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
+                                    <form method="POST" action="{{ route('users.store') }}">
                                         @csrf
                                     <div class="grid grid-cols-12 sm:gap-6">
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
-                                            <label for="input-label" class="form-label !font-normal">Full Name</label>
-                                            <input type="text" class="form-control " name="fullname">
+                                            <label for="fullname" class="form-label !font-normal">Full Name</label>
+                                            <input id="fullname" type="text" class="form-control" name="fullname" value="{{ old('fullname') }}" required>
                                             @error('fullname')
                                             <span class="text-sm text-red-500">{{ $message }}</span>
                                             @enderror
                                         </div>
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
-                                            <label for="input-label" class="form-label !mb-2">Email Address</label>
-                                            <input type="text" class="form-control " name="email">
+                                            <label for="email" class="form-label !mb-2">Email Address</label>
+                                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                            @error('email')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
-                                            <label for="input-label" class="form-label !mb-2">Birthdate</label>
-                                            <input type="date" class="form-control " name="birthdate">
+                                            <label for="birthdate" class="form-label !mb-2">Birthdate</label>
+                                            <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ old('birthdate') }}">
+                                            @error('birthdate')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
-                                            <label for="input-label" class="form-label !mb-2">Password</label>
-                                            <input type="password" class="form-control " name="password">
+                                            <label for="password" class="form-label !mb-2">Password</label>
+                                            <input id="password" type="password" class="form-control" name="password" minlength="8" required>
+                                            @error('password')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                            @enderror
                                         </div>
-  
+
                                     </div>
 
                                     <button type="submit" class="mt-4 ti-btn !text-white !bg-primary">Create User</button>
+                                    </form>
                                 </div>
-                                  </form>
                             </div>
                         </div>
                     </div>
