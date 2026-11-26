@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/users', [UserManagementController::class, 'store'])
         ->name('users.store');
+
+    Route::get('/users/{id}', [UserManagementController::class, 'show'])
+        ->name('users.show');
+
     Route::get('/users/{id}/edit', [UserManagementController::class, 'edit'])
     ->name('users.edit');
 

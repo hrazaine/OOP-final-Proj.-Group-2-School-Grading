@@ -1,14 +1,8 @@
+@extends('layouts.master')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+@section('Title', 'Edit User')
 
+@section('contents')
 <div class="container mt-5">
     <div class="card shadow">
         <div class="card-header bg-primary text-white">
@@ -27,7 +21,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('user.update', $user->id) }}" method="POST">
+            <form action="{{ route('users.update', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -61,12 +55,11 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update User</button>
-                <a href="{{ route('user.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
 
         </div>
     </div>
 </div>
+@endsection
 
-</body>
-</html>

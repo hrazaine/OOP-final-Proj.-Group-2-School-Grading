@@ -44,7 +44,9 @@ class UserManagementController extends Controller
 
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return redirect()->route('users.edit', $user->id);
     }
 
     public function edit(string $id)
@@ -61,6 +63,8 @@ class UserManagementController extends Controller
             'fullname' => 'required|string|max:255',
             'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8',
+            'role' => 'nullable|in:admin,teacher,student',
+            'is_active' => 'nullable|boolean',
             'birthdate' => 'nullable|date',
         ]);
 
@@ -71,11 +75,22 @@ class UserManagementController extends Controller
             $user->password = Hash::make($validatedData['password']);
         }
 
-        $user->birthdate = $validatedData['birthdate'];
+        if (array_key_exists('role', $validatedData) && $validatedData['role'] !== null) {
+            $user->role = $validatedData['role'];
+        }
+
+        if (array_key_exists('is_active', $validatedData) && $validatedData['is_active'] !== null) {
+            $user->is_active = (bool) $validatedData['is_active'];
+        }
+
+        if (array_key_exists('birthdate', $validatedData)) {
+            $user->birthdate = $validatedData['birthdate'];
+        }
+
         $user->save();
 
         return redirect()
-            ->route('user.index')
+            ->route('users.index')
             ->with('success', 'User updated successfully.');
     }
 
@@ -85,7 +100,7 @@ class UserManagementController extends Controller
         $user->delete();
 
         return redirect()
-            ->route('user.index')
+            ->route('users.index')
             ->with('success', 'User deleted successfully.');
     }
 }
