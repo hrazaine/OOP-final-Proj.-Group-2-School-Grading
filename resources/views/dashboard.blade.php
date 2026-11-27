@@ -24,36 +24,55 @@ School Grading System
           </div>
 
           <div class="flex xl:my-auto right-content align-items-center">
-            <div class="pe-1 xl:mb-0">
-              <button type="button" class="ti-btn ti-btn-info-full text-white ti-btn-icon me-2 btn-b !mb-0">
-                <i class="mdi mdi-filter-variant"></i>
-              </button>
-            </div>
-            <div class="pe-1 xl:mb-0">
-              <button type="button" class="ti-btn ti-btn-danger-full text-white ti-btn-icon me-2 !mb-0">
-                <i class="mdi mdi-star"></i>
-              </button>
-            </div>
-            <div class="pe-1 xl:mb-0">
-              <button type="button" class="ti-btn ti-btn-warning-full text-white  ti-btn-icon me-2 !mb-0">
-                <i class="mdi mdi-refresh"></i>
-              </button>
-            </div>
-            <div class="xl:mb-0">
-              <div class="hs-dropdown ti-dropdown">
-                <button class="ti-btn ti-btn-primary-full text-white dropdown-toggle !mb-0" type="button" id="dropdownMenuDate"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  14 Aug 2019 <i class="bi bi-chevron-down text-[.6rem] font-semibold"></i>
-                </button>
-                <ul class="hs-dropdown-menu ti-dropdown-menu hidden !z-[100]" aria-labelledby="dropdownMenuDate">
-                  <li><a class="ti-dropdown-item" href="javascript:void(0);">2015</a></li>
-                  <li><a class="ti-dropdown-item" href="javascript:void(0);">2016</a></li>
-                  <li><a class="ti-dropdown-item" href="javascript:void(0);">2017</a></li>
-                  <li><a class="ti-dropdown-item" href="javascript:void(0);">2018</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+  <div class="pe-1 xl:mb-0">
+    <button type="button" class="ti-btn ti-btn-info-full text-white ti-btn-icon me-2 btn-b !mb-0">
+      <i class="mdi mdi-filter-variant"></i>
+    </button>
+  </div>
+  <div class="pe-1 xl:mb-0">
+    <button type="button" class="ti-btn ti-btn-danger-full text-white ti-btn-icon me-2 !mb-0">
+      <i class="mdi mdi-star"></i>
+    </button>
+  </div>
+  <div class="pe-1 xl:mb-0">
+    <button type="button" class="ti-btn ti-btn-warning-full text-white ti-btn-icon me-2 !mb-0">
+      <i class="mdi mdi-refresh"></i>
+    </button>
+  </div>
+  <div class="xl:mb-0">
+    <div class="hs-dropdown ti-dropdown">
+      <button class="ti-btn ti-btn-primary-full text-white dropdown-toggle !mb-0" type="button" id="dropdownMenuDate"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span id="current-date-text"></span> <i class="bi bi-chevron-down text-[.6rem] font-semibold"></i>
+      </button>
+      <ul class="hs-dropdown-menu ti-dropdown-menu hidden !z-[100]" id="year-dropdown-list" aria-labelledby="dropdownMenuDate">
+        <!-- Years will be generated automatically -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const now = new Date();
+
+    // 1. Format date to match "14 Aug 2019" (e.g., "26 Nov 2026")
+    const day = now.getDate();
+    const month = now.toLocaleString('en-US', { month: 'short' });
+    const year = now.getFullYear();
+
+    document.getElementById('current-date-text').textContent = `${day} ${month} ${year}`;
+
+    // 2. Dynamically populate the dropdown with the last 2 years
+    const yearList = document.getElementById('year-dropdown-list');
+    for (let i = 2; i >= 1; i--) {
+      const pastYear = year - i;
+      const li = document.createElement('li');
+      li.innerHTML = `<a class="ti-dropdown-item" href="javascript:void(0);">${pastYear}</a>`;
+      yearList.appendChild(li);
+    }
+  });
+</script>
         </div>
         <!-- Page Header Close -->
         <!-- End::page-header -->
