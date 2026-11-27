@@ -64,7 +64,7 @@ class UserManagementController extends Controller
             'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8',
             'role' => 'nullable|in:admin,teacher,student',
-            'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable|in:active,inactive',
             'birthdate' => 'nullable|date',
         ]);
 
@@ -79,8 +79,8 @@ class UserManagementController extends Controller
             $user->role = $validatedData['role'];
         }
 
-        if (array_key_exists('is_active', $validatedData) && $validatedData['is_active'] !== null) {
-            $user->is_active = (bool) $validatedData['is_active'];
+        if (!empty($validatedData['is_active'])) {
+            $user->is_active = $validatedData['is_active'] === 'active';
         }
 
         if (array_key_exists('birthdate', $validatedData)) {

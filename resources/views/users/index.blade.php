@@ -18,6 +18,10 @@
                     <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
                       <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-[500] block"
                           href="{{ route('users.create') }}">New User</a></li>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
                     </ul>
                   </div>
                 </div>
@@ -31,7 +35,7 @@
                     <thead class="bg-light dark:bg-black/20">
                       <tr>
                         <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">
-                          Custumer Name</th>
+                          Student Name</th>
                         <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">
                           Email</th>
                         <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Role</th>
@@ -58,9 +62,15 @@
                         <td>{{ ucfirst($user->role ?? 'Unassigned') }}</td>
                         <td>
                           @if ($user->is_active)
+<<<<<<< HEAD
                             <span class="badge bg-success/10 !text-success">Active</span>
                           @else
                             <span class="badge bg-danger/10 !text-danger">Inactive</span>
+=======
+                          <span class="badge bg-success/10 !text-success">Active</span>
+                          @else
+                          <span class="badge bg-danger/10 !text-danger">Inactive</span>
+>>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
                           @endif
                         </td>
                         
@@ -68,13 +78,35 @@
                         <td> <span class="">{{$user->updated_at}}</span> </td>
                        
                         
-                        <td>
-                          <div class="flex gap-2"> <a aria-label="anchor" href="javascript:void(0);"
-                              class="ti-btn ti-btn-sm ti-btn-primary !border-primary/20 btn-wave waves-effect waves-light"> <i
-                                class="ri-edit-line"></i></a> <a aria-label="anchor" href="javascript:void(0);"
-                              class="ti-btn ti-btn-sm ti-btn-danger !border-danger/20 btn-wave waves-effect waves-light"> <i
-                                class="ri-delete-bin-7-line"></i> </a> </div>
-                        </td>
+                       
+<td>
+    <div class="flex gap-2">
+
+        {{-- Edit Button --}}
+        <a href="{{ route('users.edit', $user->id) }}"
+            class="ti-btn ti-btn-sm ti-btn-primary"
+            title="Edit User">
+            <i class="ri-edit-line"></i>
+        </a>
+
+        {{-- Delete Button --}}
+        <form action="{{ route('users.destroy', $user->id) }}"
+            method="POST"
+            onsubmit="return confirm('Are you sure you want to delete this user?');">
+
+            @csrf
+            @method('DELETE')
+
+            <button type="submit"
+                class="ti-btn ti-btn-sm ti-btn-danger"
+                title="Delete User">
+                <i class="ri-delete-bin-7-line"></i>
+            </button>
+        </form>
+
+    </div>
+</td>
+
                       </tr>
                         @endforeach
                     </tbody>
@@ -102,3 +134,7 @@
         </div>
         <!-- /row -->
 @endsection
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
