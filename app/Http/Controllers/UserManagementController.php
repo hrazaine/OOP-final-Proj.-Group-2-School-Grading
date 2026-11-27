@@ -10,7 +10,7 @@ class UserManagementController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('name')->paginate(15);
 
         return view('users.index', compact('users'));
     }
@@ -24,18 +24,21 @@ class UserManagementController extends Controller
     {
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:50|unique:users',
-            'password' => 'required|string|min:8',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required|in:admin,teacher,student',
+            'is_active' => 'required|in:1,0',
             'birthdate' => 'nullable|date',
         ]);
 
-        $user = new User();
-
-        $user->name = $validatedData['fullname'];
-        $user->email = $validatedData['email'];
-        $user->password = Hash::make($validatedData['password']);
-
-        $user->save();
+        User::create([
+            'name' => $validatedData['fullname'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'role' => $validatedData['role'],
+            'is_active' => $validatedData['is_active'] === '1',
+            'birthdate' => $validatedData['birthdate'] ?? null,
+        ]);
 
         return redirect()
             ->route('users.index')
@@ -61,10 +64,10 @@ class UserManagementController extends Controller
 
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:50|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8',
-            'role' => 'nullable|in:admin,teacher,student',
-            'is_active' => 'nullable|in:active,inactive',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+            'role' => 'required|in:admin,teacher,student',
+            'is_active' => 'required|in:1,0',
             'birthdate' => 'nullable|date',
         ]);
 
@@ -79,9 +82,7 @@ class UserManagementController extends Controller
             $user->role = $validatedData['role'];
         }
 
-        if (!empty($validatedData['is_active'])) {
-            $user->is_active = $validatedData['is_active'] === 'active';
-        }
+        $user->is_active = $validatedData['is_active'] === '1';
 
         if (array_key_exists('birthdate', $validatedData)) {
             $user->birthdate = $validatedData['birthdate'];
@@ -97,6 +98,13 @@ class UserManagementController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
+
+        if ($user->is(auth()->user())) {
+            return redirect()
+                ->route('users.index')
+                ->with('error', 'You cannot delete the account you are currently using.');
+        }
+
         $user->delete();
 
         return redirect()

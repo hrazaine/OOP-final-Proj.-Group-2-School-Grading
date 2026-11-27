@@ -50,10 +50,29 @@
                                         </div>
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                             <label for="password" class="form-label !mb-2">Password</label>
-                                            <input id="password" type="password" class="form-control" name="password" minlength="8" required>
+                                            <input id="password" type="password" class="form-control" name="password" minlength="8" autocomplete="new-password" required>
                                             @error('password')
                                             <span class="text-sm text-red-500">{{ $message }}</span>
                                             @enderror
+                                        </div>
+                                        <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                            <label for="password_confirmation" class="form-label !mb-2">Confirm Password</label>
+                                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" minlength="8" autocomplete="new-password" required>
+                                        </div>
+                                        <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                            <label for="role" class="form-label !mb-2">Role</label>
+                                            <select id="role" name="role" class="form-control" required>
+                                                <option value="student" @selected(old('role', 'student') === 'student')>Student</option>
+                                                <option value="teacher" @selected(old('role') === 'teacher')>Teacher</option>
+                                                <option value="admin" @selected(old('role') === 'admin')>Admin</option>
+                                            </select>
+                                        </div>
+                                        <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                            <label for="is_active" class="form-label !mb-2">Account Status</label>
+                                            <select id="is_active" name="is_active" class="form-control" required>
+                                                <option value="1" @selected(old('is_active', '1') === '1')>Active</option>
+                                                <option value="0" @selected(old('is_active') === '0')>Inactive</option>
+                                            </select>
                                         </div>
 
                                     </div>

@@ -15,7 +15,8 @@ use Illuminate\Notifications\Notifiable;
     'email',
     'password',
     'role',
-    'is_active'
+    'is_active',
+    'birthdate',
 ])]
 
 #[Hidden([
@@ -34,6 +35,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'is_active' => 'boolean',
+            'birthdate' => 'date',
         ];
     }
 

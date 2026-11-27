@@ -3,138 +3,80 @@
 @section('Title', 'User Management')
 
 @section('contents')
-   <!-- row opened -->
-        <div class="grid grid-cols-12 mt-8 gap-x-6">
-          <div class="col-span-12 xxl:col-span-12">
-            <div class="box">
-              <div class="box-header">
-                <div class="flex justify-between">
-                  <div class="box-title"> List of Users </div>
-                  <div class="hs-dropdown ti-dropdown">
-                    <a aria-label="anchor" href="javascript:void(0);"
-                      class="flex items-center justify-center w-[1.75rem] h-[1.75rem] !text-defaulttextcolor !text-[0.8rem] !pt-1 !pb-[0.1rem] !px-2 avatar-rounded border border-light shadow-none !font-[500]"
-                      data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-more-horizontal text-[0.8rem]"></i>
-                    </a>
-                    <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
-                      <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-[500] block"
-                          href="{{ route('users.create') }}">New User</a></li>
-<<<<<<< HEAD
-=======
-                    
->>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
-                    </ul>
-                  </div>
+<div class="grid grid-cols-12 mt-8 gap-x-6">
+    <div class="col-span-12">
+        <div class="box">
+            <div class="box-header flex items-center justify-between">
+                <div>
+                    <h1 class="box-title">User Management</h1>
+                    <p class="text-[.75rem] mb-0 text-textmuted">Manage student, teacher, and administrator accounts.</p>
                 </div>
-                <p class="text-[.75rem] mb-0 text-textmuted font-normal">An order is an investor's instructions to a
-                  broker or brokerage firm to purchase or sell</p>
-              </div>
-              <div class="box-body">
-                <div class="table-responsive"> 
-                  <table
-                    class="table table-auto order-table ti-custom-table table-bordered mb-0 text-nowrap w-full !border-defaultborder dark:!border-defaultborder/10">
-                    <thead class="bg-light dark:bg-black/20">
-                      <tr>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">
-                          Student Name</th>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">
-                          Email</th>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Role</th>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Status</th>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Date Registered</th>
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Date Updated</th>
-                        
-                        <th scope="col" class="border-b !border-defaultborder dark:!border-defaultborder/10">Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                      <tr>
-                        <td>
-                          <div class="flex items-center">
-                            <div class="me-2 lh-1"> <span class="avatar avatar-sm"> <img
-                                  src="{{ asset('assets/images/ecommerce/01.jpg') }}
-                                  " alt="" class="rounded-1"> </span> </div>
-                            <div class="fs-14">{{ $user->name }}</div>
-                          </div>
-                        </td>
-                        <td> <span class="fw-semibold"> {{$user->email}}</span> </td>
-                        <td>{{ ucfirst($user->role ?? 'Unassigned') }}</td>
-                        <td>
-                          @if ($user->is_active)
-<<<<<<< HEAD
-                            <span class="badge bg-success/10 !text-success">Active</span>
-                          @else
-                            <span class="badge bg-danger/10 !text-danger">Inactive</span>
-=======
-                          <span class="badge bg-success/10 !text-success">Active</span>
-                          @else
-                          <span class="badge bg-danger/10 !text-danger">Inactive</span>
->>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
-                          @endif
-                        </td>
-                        
-                        <td> <span class="">{{$user->created_at}}</span> </td>
-                        <td> <span class="">{{$user->updated_at}}</span> </td>
-                       
-                        
-                       
-<td>
-    <div class="flex gap-2">
-
-        {{-- Edit Button --}}
-        <a href="{{ route('users.edit', $user->id) }}"
-            class="ti-btn ti-btn-sm ti-btn-primary"
-            title="Edit User">
-            <i class="ri-edit-line"></i>
-        </a>
-
-        {{-- Delete Button --}}
-        <form action="{{ route('users.destroy', $user->id) }}"
-            method="POST"
-            onsubmit="return confirm('Are you sure you want to delete this user?');">
-
-            @csrf
-            @method('DELETE')
-
-            <button type="submit"
-                class="ti-btn ti-btn-sm ti-btn-danger"
-                title="Delete User">
-                <i class="ri-delete-bin-7-line"></i>
-            </button>
-        </form>
-
-    </div>
-</td>
-
-                      </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="box-footer !pt-0 !border-t-0">
-                <nav aria-label="Page navigation mb-2">
-                  <ul class="ti-pagination justify-center sm:justify-end">
-                    <li class="page-item disabled">
-                      <a class="page-link px-3 py-[0.375rem]">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link px-3 py-[0.375rem]" href="javascript:void(0);">1</a></li>
-                    <li class="page-item active"><a class="page-link px-3 py-[0.375rem]"
-                        href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link px-3 py-[0.375rem]" href="javascript:void(0);">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link px-3 py-[0.375rem]" href="javascript:void(0);">Next</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+                <a href="{{ route('users.create') }}" class="ti-btn !text-white !bg-primary">Add User</a>
             </div>
-          </div>
+
+            <div class="box-body">
+                @if (session('success'))
+                    <div class="mb-4 rounded border border-green-300 bg-green-50 p-3 text-sm text-green-700">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="mb-4 rounded border border-red-300 bg-red-50 p-3 text-sm text-red-700">{{ session('error') }}</div>
+                @endif
+
+                <div class="table-responsive">
+                    <table class="table table-auto ti-custom-table table-bordered mb-0 text-nowrap w-full !border-defaultborder dark:!border-defaultborder/10">
+                        <thead class="bg-light dark:bg-black/20">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date Registered</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($users as $user)
+                                <tr>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ ucfirst($user->role ?? 'student') }}</td>
+                                    <td>
+                                        @if ($user->is_active)
+                                            <span class="badge bg-success/10 !text-success">Active</span>
+                                        @else
+                                            <span class="badge bg-danger/10 !text-danger">Inactive</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->created_at?->format('M j, Y') ?? '—' }}</td>
+                                    <td>
+                                        <div class="flex items-center gap-2">
+                                            <a href="{{ route('users.edit', $user->id) }}" class="ti-btn ti-btn-sm ti-btn-primary" aria-label="Edit {{ $user->name }}" title="Edit user">
+                                                <i class="ri-edit-line"></i>
+                                            </a>
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Delete this user account?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="ti-btn ti-btn-sm ti-btn-danger" aria-label="Delete {{ $user->name }}" title="Delete user">
+                                                    <i class="ri-delete-bin-7-line"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="text-center text-textmuted">No users have been added yet.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
+                @if ($users->hasPages())
+                    <div class="mt-4">{{ $users->links() }}</div>
+                @endif
+            </div>
         </div>
-        <!-- /row -->
+    </div>
+</div>
 @endsection
-<<<<<<< HEAD
-=======
- 
->>>>>>> 75d43ee4faa18e612f5621b5af54fa9de8df01b8
