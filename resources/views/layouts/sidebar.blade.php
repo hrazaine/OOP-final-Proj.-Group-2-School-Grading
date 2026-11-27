@@ -58,10 +58,10 @@
                                 <a href="javascript:void(0);">Assessments</a>
                             </li>
                             <li class="slide">
-                                <a href="form_layout.html" class="side-menu__item">Quiz</a>
+                                <a href="{{ route('assessments.index', ['type' => 'quiz']) }}" class="side-menu__item {{ request()->route('type') === 'quiz' ? 'active' : '' }}">Quiz</a>
                             </li>
                             <li class="slide">
-                                <a href="form_layout.html" class="side-menu__item">Exam</a>
+                                <a href="{{ route('assessments.index', ['type' => 'exam']) }}" class="side-menu__item {{ request()->route('type') === 'exam' ? 'active' : '' }}">Exam</a>
                             </li>
                            
                         </ul>
