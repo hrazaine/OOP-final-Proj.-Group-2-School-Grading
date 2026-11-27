@@ -33,6 +33,29 @@
                                             <input type="date" class="form-control " name="birthdate">
                                         </div>
                                         <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                            <label class="form-label !mb-2">Role</label>
+                                            <select name="role" class="form-control" required>
+                                                <option value="">Select Role</option>
+                                                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                                                <option value="teacher" {{ old('role') == 'teacher' ? 'selected' : '' }}>Teacher</option>
+                                                <option value="student" {{ old('role') == 'student' ? 'selected' : '' }}>Student</option>
+                                            </select>
+                                            @error('role')
+                                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
+                                            <label class="form-label !mb-2">Account Status</label>
+                                            <select name="status" class="form-control" required>
+                                                <option value="">Select Status</option>
+                                                <option value="active" {{ old('status', 'active') == 'active' ? 'selected' : '' }}>Active</option>
+                                                <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                            </select>
+                                            @error('status')
+                                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="xl:col-span-4 lf:col-span-6 md:col-span-6 sm:col-span-12 col-span-12">
                                             <label for="input-label" class="form-label !mb-2">Password</label>
                                             <input type="password" class="form-control " name="password">
                                         </div>
