@@ -55,12 +55,14 @@
                         </a>
                         <ul class="slide-menu child1">
                             <li class="slide side-menu__label1">
-                                <a href="javascript:void(0);">Assesments</a>
+                                <a href="javascript:void(0);">Assessments</a>
                             </li>
                             <li class="slide">
-                                <a href="form_layout.html" class="side-menu__item">SAR</a>
+                                <a href="form_layout.html" class="side-menu__item">Quiz</a>
                             </li>
-                            
+                            <li class="slide">
+                                <a href="form_layout.html" class="side-menu__item">Exam</a>
+                            </li>
                            
                         </ul>
                     </li>

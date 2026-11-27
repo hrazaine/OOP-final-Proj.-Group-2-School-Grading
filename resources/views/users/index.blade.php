@@ -18,10 +18,6 @@
                     <ul class="hs-dropdown-menu ti-dropdown-menu hidden">
                       <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-[500] block"
                           href="{{ route('users.create') }}">New User</a></li>
-                      <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-[500] block"
-                          href="javascript:void(0);">Import from Excel</a></li>
-                      <li><a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-[500] block"
-                          href="javascript:void(0);">Export PDF</a></li>
                     </ul>
                   </div>
                 </div>
@@ -59,13 +55,13 @@
                           </div>
                         </td>
                         <td> <span class="fw-semibold"> {{$user->email}}</span> </td>
-                        <td> {{$user->role}} </td>
+                        <td>{{ ucfirst($user->role ?? 'Unassigned') }}</td>
                         <td>
-                          @if ($user->status == 'active')
-                          <span class="badge bg-success/10 !text-success">{{$user->status}}</span>
-                          @elseif ($user->status == 'inactive')
-                          <span class="badge bg-danger/10 !text-danger">{{$user->status}}</span>
-                          @endif  
+                          @if ($user->is_active)
+                            <span class="badge bg-success/10 !text-success">Active</span>
+                          @else
+                            <span class="badge bg-danger/10 !text-danger">Inactive</span>
+                          @endif
                         </td>
                         
                         <td> <span class="">{{$user->created_at}}</span> </td>

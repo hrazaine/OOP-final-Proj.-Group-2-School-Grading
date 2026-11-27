@@ -56,7 +56,7 @@ School Grading System
 
 <!-- Start::row -->
 <div class="grid grid-cols-12 gap-x-6">
-  <div class="xxl:col-span-3 md:col-span-6 col-span-12">
+  <div class="xxl:col-span-3 md:col-span-3 col-span-12">
     <div class="box">
       <div class="box-body">
         <div class="flex">
@@ -74,7 +74,7 @@ School Grading System
     </div>
   </div>
 
-  <div class="xxl:col-span-3 md:col-span-6 col-span-12">
+  <div class="xxl:col-span-3 md:col-span-3 col-span-12">
     <div class="box">
       <div class="box-body">
         <div class="flex">
@@ -92,7 +92,7 @@ School Grading System
     </div>
   </div>
 
-  <div class="xxl:col-span-3 md:col-span-6 col-span-12">
+  <div class="xxl:col-span-3 md:col-span-3 col-span-12">
     <div class="box">
       <div class="box-body">
         <div class="flex">
@@ -110,7 +110,7 @@ School Grading System
     </div>
   </div>
 
-  <div class="xxl:col-span-3 md:col-span-6 col-span-12">
+  <div class="xxl:col-span-3 md:col-span-3 col-span-12">
     <div class="box">
       <div class="box-body">
         <div class="flex">
