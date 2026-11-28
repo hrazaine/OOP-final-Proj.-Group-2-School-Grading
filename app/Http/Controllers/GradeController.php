@@ -11,23 +11,23 @@ use Illuminate\Validation\Rule;
 class GradeController extends Controller
 {
     public function index()
-    {
-        $grades = Grade::with(['user', 'assessment'])
-            ->latest()
-            ->paginate(15);
+{
+    $grades = Grade::with(['user', 'assessment'])
+        ->latest()
+        ->paginate(15);
 
-        $students = User::where('role', 'student')
-            ->orderBy('name')
-            ->get();
+    $students = User::where('role', 'student')
+        ->orderBy('name')
+        ->get();
 
-        $assessments = Assessment::orderBy('title')->get();
+    $assessments = Assessment::orderBy('title')->get();
 
-        return view('grades.index', compact(
-            'grades',
-            'students',
-            'assessments'
-        ));
-    }
+    return view('grades.index', compact(
+        'grades',
+        'students',
+        'assessments'
+    ));
+}
 
     public function store(Request $request)
     {
