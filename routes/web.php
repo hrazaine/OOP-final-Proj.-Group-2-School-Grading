@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,18 @@ Route::get('/dashboard', function () {
 
 // Authenticated User Routes
 Route::middleware('auth')->group(function () {
+
+    // Quiz and exam records are associated with users from User Management.
+    Route::get('/assessments/{type}', [AssessmentController::class, 'index'])
+        ->where('type', 'quiz|exam')
+        ->name('assessments.index');
+
+    Route::post('/assessments/{type}', [AssessmentController::class, 'store'])
+        ->where('type', 'quiz|exam')
+        ->name('assessments.store');
+
+    Route::delete('/assessments/{assessment}', [AssessmentController::class, 'destroy'])
+        ->name('assessments.destroy');
 
     // Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])
