@@ -69,28 +69,20 @@
                     <!-- End::slide -->
 
                     <!-- Start::slide -->
-                    <li class="slide has-sub">
-                        <a href="javascript:void(0);" class="side-menu__item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h15v3H5zm12 5h3v9h-3zm-7 0h5v9h-5zm-5 0h3v9H5z" opacity=".3"/><path d="M20 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 19H5v-9h3v9zm7 0h-5v-9h5v9zm5 0h-3v-9h3v9zm0-11H5V5h15v3z"/></svg>
-                            <span class="side-menu__label">Grades</span>
-                            <i class="fe fe-chevron-right side-menu__angle"></i>
-                        </a>
-                        <ul class="slide-menu child1">
-                            <li class="slide side-menu__label1">
-                                <a href="javascript:void(0);">Grades</a>
-                            </li>
-                            <li class="slide">
-                                <a href="tables.html" class="side-menu__item">Tables</a>
-                            </li>
-                            <li class="slide">
-                                <a href="grid-tables.html" class="side-menu__item">Grid JS Tables</a>
-                            </li>
-                            <li class="slide">
-                                <a href="data-tables.html" class="side-menu__item">Data Tables</a>
-                            </li>
-                            <li class="slide">
-                                <a href="edittable.html" class="side-menu__item">Edit Table</a>
-                            </li>
-                        </ul>
-                    </li>
+
+            <!-- Grades Management -->
+    <li class="slide">
+        <a href="{{ route('grades.index') }}"
+        class="side-menu__item {{ request()->routeIs('grades.*') ? 'active' : '' }}">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+                 class="side-menu__icon"
+                 viewBox="0 0 24 24">
+            <path d="M20 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+        </svg>
+
+            <span class="side-menu__label">Grades Management</span>
+        </a>
+    </li>
+
                     <!-- End::slide -->

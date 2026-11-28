@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\UserManagementController;
@@ -60,6 +61,16 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/users/{id}', [UserManagementController::class, 'destroy'])
     ->name('users.destroy');
+
+    // Grades
+    Route::get('/grades', [GradeController::class, 'index'])
+    ->name('grades.index');
+
+    Route::post('/grades', [GradeController::class, 'store'])
+    ->name('grades.store');
+
+    Route::delete('/grades/{grade}', [GradeController::class, 'destroy'])
+    ->name('grades.destroy');
 
 });
 
